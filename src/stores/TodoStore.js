@@ -5,8 +5,6 @@ class TodoStore {
 
     @observable todos = [] ;
     
-    @observable todosReturn = this.todos ;
-
     @observable showModel = "all"  ;
     
     @observable activeNum = 0 ;
@@ -32,39 +30,8 @@ class TodoStore {
     }
 
     @action
-    changeReturn(type){
-        this.todosReturn = [];
-        if(type === "all"){
-            this.todosReturn = this.todos
-            this.showModel = "all"
-
-        }else if(type === "active"){
-            this.showModel = "active"
-
-            for (let x = 0; x < this.todos.length; x++) {
-                
-                if(this.todos[x].completed !== true){
-                    this.todosReturn.push(this.todos[x]);
-                    
-                }
-                console.log(x)
-
-            } 
-            
-        
-        }else if("left"){
-            this.showModel = "left"
-
-            for (let x = 0; x < this.todos.length; x++) {
-                
-                if(this.todos[x].completed === true){
-                    this.todosReturn.push(this.todos[x]);
-                } 
-
-            } 
-
-        } 
-        
+    setShowModel(type){ 
+            this.showModel = type
     }
 
     

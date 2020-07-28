@@ -5,9 +5,7 @@ import todoStore from '../stores/TodoStore';
 
 @observer
 class TodoEntry extends Component {
-    state = { 
-        value : ""
-    }
+    state = { value : ""  }
 
     handleKeyDown = event => {
         if(event.keyCode !== 13 || this.state.value === '' ){

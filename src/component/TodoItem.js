@@ -12,6 +12,9 @@ class TodoItem extends Component {
     ddl= () =>{
         this.props.todo.todoDel()
     }
+
+
+    
     render() {
         const {todo} = this.props ;
         return ( 

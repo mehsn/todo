@@ -1,17 +1,37 @@
 import React, {Component} from 'react';
 import {observer} from 'mobx-react'
 import TodoItem from "./TodoItem";
-import todoStore from '../stores/TodoStore';
+import TodoStore from '../stores/TodoStore';
 
 @observer
 class TodoItems extends Component {
+ 
+
     render() {
         return ( 
-            <section className="main" >
+        <section className="main" >
             <ul className="todo-list" >
                 {
-                    todoStore.todosReturn.map(todo=>{
-                        return( <TodoItem todo={todo} /> )
+                    TodoStore.todos.map(todo =>{
+                        console.log(TodoStore.showModel)
+
+                        if(TodoStore.showModel === "all"){
+                            
+                            return( <TodoItem todo={todo} /> )
+
+                        }else if(TodoStore.showModel === "active"){
+                            if(todo.completed !== true){ 
+                                return( <TodoItem todo={todo} /> )
+
+                            }
+                        }else if(TodoStore.showModel === "left"){
+                           
+                            if(todo.completed === true){ 
+                                return( <TodoItem todo={todo} /> )
+
+                            }
+                         }   
+                     
                     })
                 }
               

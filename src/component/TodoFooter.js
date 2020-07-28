@@ -1,35 +1,25 @@
 import React, {Component} from 'react';
 import {observer} from 'mobx-react'
-import TodoItem from "./TodoItem";
+import TodoItems from "./TodoItems";
 import TodoStore from '../stores/TodoStore';
 
 @observer
-class TodoItems extends Component {
+class TodoFooter extends Component {
      
-    itemsActive(){
-        let ca = 0 ;
-        for (let index = 0; index < TodoStore.todos.length; index++) {
-            
-            TodoStore.todos.completed !== true ? ca++ : ca=ca
-            console.log(ca)
-            
-        }
-        return ca ;
-    }
-    activeItems(){
-        TodoStore.changeReturn("active")
-    }
-    leftItems(){ 
-        TodoStore.changeReturn("left")
-    }
 
     allItems(){ 
-        TodoStore.changeReturn("all")
+        TodoStore.setShowModel("all") ;
+    }   
+    activeItems(){
+        TodoStore.setShowModel("active") ;
     }
+    leftItems(){ 
+        TodoStore.setShowModel("left") ;
+    }
+
     completedDelete(){
         TodoStore.completedDelete()
     }
-
 
 
     render() {
@@ -70,4 +60,4 @@ class TodoItems extends Component {
         )
     }
 }
-export default TodoItems;
+export default TodoFooter;

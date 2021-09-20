@@ -2,7 +2,7 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
-  "hompage": "https://mehsn.github.io/",
+  "hompage": "https://mehsn.github.io/todo",
   "dependencies": {
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",
